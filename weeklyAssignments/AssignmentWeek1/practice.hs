@@ -50,3 +50,37 @@ batAvgRating hits atBats
     where avg = hits/atBats
 
 
+-- Working with lists 
+
+getListItems :: [Int] -> String 
+
+getListItems [] = "Your list is empty"
+getListItems (x:[]) = "Your list starts with " ++ show x 
+getListItems (x:y:[]) = "First item is " ++ show x ++ "Second item is " ++ show y
+getListItems (x:xs) = "First item is: " ++ show x ++ "The rest is " ++ show xs 
+
+
+-- Get values with as pattern
+
+getFirstItem :: String -> String 
+
+getFirstItem [] = "Empty string"
+getFirstItem all@(x:xs) = "The first letter in " ++ all ++ " is " ++ [x]
+
+
+
+
+-- Higher order functions 
+
+times4 :: Int -> Int 
+times4 x = x * 4 
+
+listTimes4 = map times4 [1, 3, 5, 9]
+
+multBy4 :: [Int] -> [Int]
+multBy4 [] = []
+multBy4 (x:xs) = times4 x : multBy4 xs
+
+
+
+
