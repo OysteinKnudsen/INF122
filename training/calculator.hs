@@ -1,6 +1,12 @@
 -- Calculator
 import Text.Parsec
+import Text.Parsec.Token
+import Text.Parsec.Language
 import Text.Parsec.String
+
+lexer :: TokenParser()
+lexer == makeTokenparser (javaStyle { opStart = oneOf "+-*/%",
+                                      opLetter = oneOf "+-*/%"})
 
 parseNumber :: Parser Int
 parseNumber = do
